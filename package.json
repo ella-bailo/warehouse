@@ -1,0 +1,44 @@
+{
+  "name": "warehouse",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx tsc",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky install",
+    "eslint": "node_modules/.bin/eslint . --fix",
+    "lint-staged": "lint-staged"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ella-bailo/warehouse.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ella-bailo/warehouse/issues"
+  },
+  "homepage": "https://github.com/ella-bailo/warehouse#readme",
+  "dependencies": {
+    "commander": "^10.0.0",
+    "figlet": "^1.5.2"
+  },
+  "devDependencies": {
+    "@types/figlet": "^1.5.5",
+    "@types/node": "^18.13.0",
+    "@typescript-eslint/eslint-plugin": "^5.51.0",
+    "@typescript-eslint/parser": "^5.51.0",
+    "eslint-config-prettier": "8.6.0",
+    "husky": "^8.0.0",
+    "lint-staged": "^13.1.1",
+    "prettier": "2.8.4",
+    "typescript": "^4.9.5"
+  },
+  "lint-staged": {
+    "*.{ts, json}": [
+      "npm run eslint"
+    ]
+  }
+}
