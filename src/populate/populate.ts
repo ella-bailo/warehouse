@@ -1,7 +1,7 @@
 import fs from 'fs';
 import { Article, ContainArticles, Product } from '../interfaces';
 import { MArticle, MProduct } from '../models';
-import { connect, close } from '../connection';
+import { connect, close, clear } from '../connection';
 
 const getJSON = async (path: string) => {
   try {
@@ -73,17 +73,18 @@ export const populateWarehouse = async (
 
     await connect(connectionString);
 
-    await MArticle.createCollection();
-    await MArticle.collection.drop();
-    await MArticle.insertMany(mappedArticles);
-
-    await MArticle.createCollection();
-    await MProduct.collection.drop();
-    await MProduct.insertMany(mappedProducts);
+    await clear();
+    const articleResult = await MArticle.insertMany(mappedArticles);
+    const productResult = await MProduct.insertMany(mappedProducts);
 
     await close();
 
-    console.log('Warehouse populated!');
+    return {
+      data: {
+        articles: articleResult,
+        products: productResult,
+      },
+    };
   } catch (err) {
     console.log('something went wrong:\n', err);
   }

@@ -15,7 +15,14 @@ populate
   .argument('<inventoryPath>', 'inventoryPath')
   .argument('<productsPath>', 'productsPath')
   .action(async (connectionString, inventoryPath, productsPath) => {
-    await populateWarehouse(connectionString, inventoryPath, productsPath);
+    const result = await populateWarehouse(
+      connectionString,
+      inventoryPath,
+      productsPath,
+    );
+    console.log(
+      `Warehouse populated!\nArticles added: ${result?.data.articles.length}\nProducts added: ${result?.data.products.length}`,
+    );
   });
 
 const list = program.command('list');

@@ -13,3 +13,7 @@ export const connect = async (connectionString: string): Promise<void> => {
 export const close = async () => {
   await mongoose.connection.close();
 };
+
+export const clear = async () => {
+  await mongoose.connection.dropDatabase();
+};
