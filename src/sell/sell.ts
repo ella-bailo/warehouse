@@ -17,9 +17,10 @@ export const sellProduct = async (
       return;
     }
 
-    if (!product?.containArticles) {
+    if (!product?.containArticles || product.containArticles.length < 1) {
       await close();
-      throw Error('No articles found in product');
+      console.log('No articles found in product');
+      return;
     }
 
     const allArticlesRequired: Set<string> = new Set();
@@ -44,16 +45,21 @@ export const sellProduct = async (
       return;
     }
 
+    const results = [];
     for (const article of product.containArticles) {
-      await MArticle.findOneAndUpdate(
+      const result = await MArticle.findOneAndUpdate(
         { artId: article.artId },
         { $inc: { stock: -article.amountOf } },
       );
+      results.push(result);
     }
-
     await close();
 
-    console.log(`${productName} sold!`);
+    return {
+      data: {
+        articles: results,
+      },
+    };
   } catch (err) {
     console.log('something went wrong:\n', err);
   }

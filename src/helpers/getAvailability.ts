@@ -2,7 +2,7 @@ import { Article, ContainArticles } from '../interfaces';
 
 export const getAvaiability = (
   containArticles: ContainArticles[],
-  requiredArticlesInStock: Partial<Article>[],
+  requiredArticlesInStock: Article[],
 ): number => {
   const maxAvaiabilies: number[] = [];
 

@@ -30,7 +30,8 @@ list
   .description('List products in the warehouse')
   .argument('<connectionString>', 'connectionString')
   .action(async (connectionString) => {
-    await listInventory(connectionString);
+    const result = await listInventory(connectionString);
+    console.table(result?.data.productsWithAvailability);
   });
 
 const sell = program.command('sell');
@@ -39,7 +40,10 @@ sell
   .argument('<connectionString>', 'connectionString')
   .argument('<productName>', 'productName')
   .action(async (connectionString, productName) => {
-    await sellProduct(connectionString, productName);
+    const result = await sellProduct(connectionString, productName);
+    console.log(
+      `${productName} sold!\nTypes of article used: ${result?.data.articles.length}`,
+    );
   });
 
 program

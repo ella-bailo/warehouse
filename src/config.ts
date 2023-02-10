@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-export const mongooseOptions: mongoose.ConnectOptions = {
+export const MONGOOSE_OPTIONS: mongoose.ConnectOptions = {
   autoIndex: true,
   dbName: 'warehouse',
 };

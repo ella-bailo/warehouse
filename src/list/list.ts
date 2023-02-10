@@ -5,7 +5,7 @@ import { MArticle, MProduct } from '../models';
 
 const mapProductToShape = (
   { name, containArticles }: Product,
-  requiredArticlesInStock: Partial<Article>[],
+  requiredArticlesInStock: Article[],
 ) => ({
   name,
   available: getAvaiability(containArticles, requiredArticlesInStock),
@@ -49,7 +49,11 @@ export const listInventory = async (connectionString: string) => {
       );
     });
 
-    console.table(productsWithAvailability);
+    return {
+      data: {
+        productsWithAvailability: productsWithAvailability,
+      },
+    };
   } catch (err) {
     console.log('something went wrong:\n', err);
   }
