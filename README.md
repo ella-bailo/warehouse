@@ -14,48 +14,75 @@ To check your node version:
 
 node -v
 
-To switch to version 14:
+To switch to version 17:
 
 nvm use 17
 
 ## Testing
 
 To run tests:
-`npm run tests`
+
+```
+npm run tests
+```
 
 ## Running
 
 ### Database Setup
 
 In order to use the CLI you will need to connect to a mongoDB called 'warehouse'. You can spin one of these up by running:
-`docker compose up`
+
+```
+docker compose up
+```
 
 If you dont already have docker desktop you can download it [here](https://www.docker.com/products/docker-desktop/).
 
 When you are done, you can spin the db down by running:
-`docker compose down`
+
+```
+docker compose down
+```
 
 The connection string to this database is as follows:
-`mongodb://localhost:27017/warehouse`
+
+```
+mongodb://localhost:27017/warehouse
+```
 
 ### Running the CLI
 
 First:
-`npm i`
+
+```
+npm i
+```
 
 Then to build:
-`npm run build`
+
+```
+npm run build
+```
 
 You can then either run the CLI from this repository or install it globally.
 
 To run from this repository:
-`node dist/index.js [command] [arguments]`
+
+```
+node dist/index.js [command] [arguments]
+```
 
 To install globally:
-`npm install -g`
+
+```
+npm install -g
+```
 
 You will then be able to run from anywhere, e.g:
-`warehouse`
+
+```
+warehouse
+```
 
 Will output:
 
@@ -84,17 +111,33 @@ Commands:
 
 **Populate**
 There are example inventory.json and products.json files in this repository which can be used to populate the database. If running from the warehouse directory the path to these files will be as follows:
-`'./examples/inventory.json'`
+
+```
+'./examples/inventory.json'
+```
+
 and:
-`./examples/products.json`
+
+```
+./examples/products.json
+```
 
 e.g:
-`node dist/index.js populate  'mongodb://localhost:27017/warehouse' './examples/inventory.json' './examples/products.json'`
+
+```
+node dist/index.js populate  'mongodb://localhost:27017/warehouse' './examples/inventory.json' './examples/products.json'
+```
 
 **List**
 e.g:
-`node dist/index.js list  'mongodb://localhost:27017/warehouse`
+
+```
+node dist/index.js list  'mongodb://localhost:27017/warehouse
+```
 
 **Sell**
 e.g:
-`node dist/index.js sell  'mongodb://localhost:27017/warehouse' 'Dining Chair'`
+
+```
+node dist/index.js sell  'mongodb://localhost:27017/warehouse' 'Dining Chair'
+```
