@@ -92,24 +92,26 @@ Commands:
 ## Examples
 
 **Populate**
-There are example inventory.json and products.json files in this repository which can be used to populate the database. If running from the warehouse directory the path to these files will be as follows:
+There are example `inventory.json` and `products.json` files in this repository which can be used to populate the database. If running from the warehouse directory the path to these files will be as follows:
 
 `'./examples/inventory.json'`
 
 and:
 
-`./examples/products.json`
+`'./examples/products.json'`
 
 e.g:
 
 `node dist/index.js populate  'mongodb://localhost:27017/warehouse' './examples/inventory.json' './examples/products.json'`
 
 **List**
+
 e.g:
 
 `node dist/index.js list  'mongodb://localhost:27017/warehouse`
 
 **Sell**
+
 e.g:
 
 `node dist/index.js sell  'mongodb://localhost:27017/warehouse' 'Dining Chair'`
