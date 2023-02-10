@@ -108,7 +108,7 @@ e.g:
 
 e.g:
 
-`node dist/index.js list  'mongodb://localhost:27017/warehouse`
+`node dist/index.js list  'mongodb://localhost:27017/warehouse'`
 
 **Sell**
 
