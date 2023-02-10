@@ -92,6 +92,7 @@ Commands:
 ## Examples
 
 **Populate**
+
 There are example `inventory.json` and `products.json` files in this repository which can be used to populate the database. If running from the warehouse directory the path to these files will be as follows:
 
 `'./examples/inventory.json'`
